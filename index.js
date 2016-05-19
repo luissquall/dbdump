@@ -51,9 +51,6 @@ function dump(user, password, db) {
 		// Add one line before every CREATE TABLE directive
 		content = content.replace(/CREATE TABLE/g, EOL + "CREATE TABLE");
 
-		// Delete last linefeed
-		content = content.replace(/\n$/g, '');
-
 		// Remove DEFINER clauses
 		// */ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003
 		content = content.replace(/\*\/ (\/\*!\d+) DEFINER=.*?(\*\/) \/\*!\d+/g, '');
