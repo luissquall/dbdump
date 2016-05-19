@@ -25,7 +25,7 @@ function dump(user, password, db) {
 		if (error) {
 			return;
 		}
-		
+
 		content = stdout;
 
 		// Delete CRs
@@ -63,7 +63,7 @@ function dump(user, password, db) {
 
 		process.stdout.write(content);
 	});
-	
+
 	child.stderr.pipe(process.stderr);
 }
 
