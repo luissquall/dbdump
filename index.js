@@ -39,7 +39,8 @@ function dump(user, password, db) {
 
 		// Remove MySQL specific code
 		// /*!40101 SET character_set_client = @saved_cs_client */;
-		content = content.replace(/^\/\*!.*\*\/;$\n?/gm, '');
+		// /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+		content = content.replace(/^\/\*!.*\*\/ ?;$\n?/gm, '');
 
 		// Add one line before every CREATE TABLE directive
 		content = content.replace(/CREATE TABLE/g, EOL + "CREATE TABLE");
