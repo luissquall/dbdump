@@ -26,7 +26,6 @@
   },
   "homepage": "https://github.com/luissquall/dbdump#readme",
   "dependencies": {
-    "lodash.template": "^3.6.1",
     "yargs": "^3.10.0"
   }
 }

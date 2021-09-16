@@ -1,25 +1,17 @@
 var exec = require('child_process').exec;
-var _ = {};
-
-_.template = require('lodash.template');
 
 var EOL = "\n";
-var template;
-var compiled;
 var opts = {
 	maxBuffer: 10000*1024
 };
 
-template  = 'mysqldump --compact --add-drop-database --add-drop-table --complete-insert --no-data --triggers --routines ';
-template += '-u <%= user %> <% if (password) { print("-p" + (password === true ? "" : password)) } %> <%= db %>';
-compiled = _.template(template);
-
 function dump(user, password, db) {
-	var cmd;
+	let cmd;
 	var child;
 	var content;
 
-	cmd = compiled({user: user, password: password, db: db});
+	cmd = 'mysqldump --compact --add-drop-database --add-drop-table --complete-insert --no-data --triggers --routines ';
+	cmd += `-u ${user} ${password ? '-p' + (password === true ? '' : password) : ''} ${db}`;
 
 	child = exec(cmd, opts, function (error, stdout, stderr) {
 		if (error) {
