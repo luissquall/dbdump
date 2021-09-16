@@ -38,6 +38,7 @@ function dump(user, password, db) {
 		content = content.replace(/ AUTO_INCREMENT=\d+/g, '');
 
 		// Remove MySQL specific code
+		// /*!40101 SET character_set_client = @saved_cs_client */;
 		content = content.replace(/^\/\*!.*\*\/;$\n?/gm, '');
 
 		// Add one line before every CREATE TABLE directive
